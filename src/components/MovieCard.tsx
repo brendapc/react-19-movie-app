@@ -1,11 +1,14 @@
-interface MoviesProps {
-  movie: {
-    title: string;
-    vote_average: number;
-    poster_path: string;
-    release_date: string;
-    original_language: string;
-  };
+export interface MoviesProps {
+  movie: MovieProps;
+}
+
+export interface MovieProps {
+  id: number;
+  title: string;
+  vote_average: number;
+  poster_path: string;
+  release_date: string;
+  original_language: string;
 }
 
 const MovieCard = ({
