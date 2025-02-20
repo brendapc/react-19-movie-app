@@ -39,3 +39,18 @@ export const updateSearchCount = async (searchTerm: string, movie: MovieProps) =
     }       
 
 }
+
+export const getTrendingMovies = async () => {
+    try {
+        const response = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
+            Query.orderDesc("count"),
+            Query.limit(5),
+        ]);
+
+        return response.documents
+    }
+    catch (error) {
+        console.error(`Error fetching trending movies: ${error}`);
+        return [];
+    }
+}
